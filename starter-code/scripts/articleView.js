@@ -21,7 +21,7 @@ articleView.handleAuthorFilter = function() {
     if ($(this).val()) {
       console.log($(this).val());
       $('article').hide();
-      $('article[data-category="' + $(this).val() + '"]').fadeIn(500);
+      $('article[data-author="' + $(this).val() + '"]').fadeIn(500);
       /* Done: If the select box changes to an option that has a value,
       we should:
       1. Hide all the articles,
@@ -56,17 +56,28 @@ articleView.handleCategoryFilter = function() {
 };
 
 articleView.handleMainNav = function () {
-  
-  /* TODO: Complete the delegated event handler below to help
+
+  /* Done: Complete the delegated event handler below to help
   power the tabs feature.
   Clicking any .tab element should:
   1. Hide all the .tab-content sections.
   2. Fade in the single .tab-content section that is associated withthe clicked
   .tab element's data-content attribute. */
+  $('#home_tab').on('click', function() {
+    $('#about').hide();
+    $('#articles').show();
+    $('article').not('.template').fadeIn(500);
+    $('#author-filter').val('');
+    $('#category-filter').val('');
+  });
 
-  $('.main-nav').on(/* CODE GOES HERE */);
-
-  $('.main-nav .tab:first').click();
+  $('#about_tab').on('click', function() {
+    $('#articles').hide();
+    $('#about').fadeIn(500);
+  });
+  // $('.main-nav').on(/* CODE GOES HERE */);
+  //
+  // $('.main-nav .tab:first').click();
 };
 
 articleView.setTeasers = function() {
@@ -84,3 +95,6 @@ articleView.setTeasers = function() {
 
 // TODO: Invoke all of the above functions (I mean, methods!):
 articleView.populateFilters();
+articleView.handleAuthorFilter();
+articleView.handleCategoryFilter();
+articleView.handleMainNav();
