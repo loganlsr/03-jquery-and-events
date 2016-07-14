@@ -56,6 +56,7 @@ articleView.handleCategoryFilter = function() {
 };
 
 articleView.handleMainNav = function () {
+  
   /* TODO: Complete the delegated event handler below to help
   power the tabs feature.
   Clicking any .tab element should:
