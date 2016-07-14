@@ -14,7 +14,8 @@ Article.prototype.toHtml = function() {
   $newArticle.removeClass('template');
 
   $newArticle.attr('data-category', this.category);
-  // TODO: Use jQuery to also add the author name as a data-attribute of the newly cloned article.
+  $newArticle.attr('data-author', this.author);
+  // Done: Use jQuery to also add the author name as a data-attribute of the newly cloned article.
   //       Doing so will allow us to use selectors to target articles, based on who wrote them.
 
   $newArticle.find('.byline a').text(this.author);
